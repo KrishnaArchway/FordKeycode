@@ -1,0 +1,147 @@
+package com.archway.estore.util;
+
+import com.archway.estore.common.ConfigurationServlet;
+import com.archway.estore.common.Logger;
+import com.archway.estore.wslx.ADFSCookieBean;
+import com.archway.estore.wslx.CollectCookieInformationBean;
+import com.ford.ito.jwt.JWTException;
+import com.ford.ito.jwt.JWTPublicKey;
+import com.ford.ito.jwt.JWTToken;
+import com.ford.ito.jwt.JWTTokenValidatorOAuth2;
+import com.ford.ito.jwt.JWTValidatorFactory;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class ADFSValidation {
+   private static Logger logger = Logger.getLogger(ADFSValidation.class);
+   private String s_jwtToken = "";
+   private List<String> l_publicKeys = new ArrayList();
+   private String s_audience = "";
+
+   public ADFSValidation(String jwtToken) {
+      this.s_jwtToken = jwtToken;
+   }
+
+   public ADFSCookieBean validateAdfsToken() {
+      String methodName = "validateAdfsToken";
+      logger.debug("*************************************");
+      logger.entering(methodName);
+      this.s_audience = ConfigurationServlet.getApplicationProperty("audience.id");
+      this.l_publicKeys.add(ConfigurationServlet.getApplicationProperty("adfs.key.cert"));
+      String errorMessage = "";
+      ADFSCookieBean adfsCookieData = null;
+
+      try {
+         adfsCookieData = new ADFSCookieBean();
+         JWTPublicKey[] jwtKeys = this.convertStringKeysToJWTPublicKeys(this.l_publicKeys);
+         JWTTokenValidatorOAuth2 jwtValidator = (JWTTokenValidatorOAuth2)JWTValidatorFactory.createADFSTokenValidator(1, jwtKeys);
+         logger.warn("token: " + this.s_jwtToken);
+         JWTToken token = jwtValidator.validateToken(this.s_jwtToken, this.s_audience, true);
+         logger.warn("getValidityStatus: " + token.getValidityStatus());
+         if (token.getValidityStatus() == 5) {
+            adfsCookieData = this.assignValuetoWSLCookie(token);
+            errorMessage = "Success! Redirected";
+         } else if (token.getValidityStatus() == 0) {
+            logger.warn("\nNo token provided!");
+            errorMessage = "No token provided!";
+         } else if (token.getValidityStatus() == 1) {
+            logger.warn("\nToken is invalid!");
+            errorMessage = "Token is invalid!";
+         } else if (token.getValidityStatus() == 2) {
+            logger.warn("\nToken has expired!");
+            logger.warn("--Issue Time: {0}" + token.getIssueTime().toLocaleString());
+            logger.warn("--Expiration Time: {0}" + token.getExpireTime().toLocaleString());
+            errorMessage = "Token has expired!";
+         } else if (token.getValidityStatus() == 3) {
+            logger.warn("\nToken has an invalid signature!");
+            errorMessage = "Token has an invalid signature!";
+         } else if (token.getValidityStatus() == 4) {
+            logger.warn("\nToken has an invalid Audience!");
+            errorMessage = "Token has an invalid Audience!";
+         } else {
+            logger.warn("Token Status is: " + token.getValidityStatus());
+            errorMessage = "<p>Issue in Token Status:: " + token.getValidityStatus() + ".\nIf Status is 6, Certificate Expired.\nPlease Contact KeyCode Admin.</p>";
+         }
+      } catch (Exception var10) {
+         logger.warn("Exception Caught: " + var10.getMessage());
+         logger.warn("Exception Stack: " + var10.getStackTrace());
+      } finally {
+         logger.exiting(methodName);
+      }
+
+      adfsCookieData.setErrorMessage(errorMessage);
+      return adfsCookieData;
+   }
+
+   public JWTPublicKey[] convertStringKeysToJWTPublicKeys(List<String> keys) throws JWTException {
+      int size = keys.size();
+      JWTPublicKey[] jwtPublicKeys = new JWTPublicKey[size];
+
+      for(int i = 0; i < keys.size(); ++i) {
+         JWTPublicKey key = new JWTPublicKey((String)keys.get(i));
+         jwtPublicKeys[i] = key;
+      }
+
+      return jwtPublicKeys;
+   }
+
+   private ADFSCookieBean assignValuetoWSLCookie(JWTToken token) {
+      ADFSCookieBean adfsCookieData = new ADFSCookieBean();
+      String methodName = "assignValuetoWSLCookie";
+      logger.debug("*************************************");
+      logger.entering(methodName);
+
+      try {
+         adfsCookieData.setAci(token.getPayloadClaimByKeyNameAsString("ACIGROUP"));
+         adfsCookieData.setOrg(token.getPayloadClaimByKeyNameAsString("sitecode"));
+         adfsCookieData.setOrgCode(token.getPayloadClaimByKeyNameAsString("country"));
+         adfsCookieData.setUser(token.getPayloadClaimByKeyNameAsString("userid"));
+         adfsCookieData.setDivAbbr(token.getPayloadClaimByKeyNameAsString("divAbbr"));
+         adfsCookieData.setEmpCode(token.getPayloadClaimByKeyNameAsString("empcode"));
+         adfsCookieData.setCompany(token.getPayloadClaimByKeyNameAsString("company"));
+         adfsCookieData.setIssuer(token.getPayloadClaimByKeyNameAsString("iss"));
+         adfsCookieData.setIssued(String.valueOf(token.getPayloadClaimByKeyNameAsLong("iat")));
+         adfsCookieData.setRole(token.getPayloadClaimByKeyNameAsString("mrrole"));
+         adfsCookieData.setExpires(String.valueOf(token.getPayloadClaimByKeyNameAsLong("exp")));
+      } catch (Exception var8) {
+         logger.warn("Exception Caught assignValuetoWSLCookie: " + var8.getMessage());
+         logger.warn("Exception Stack assignValuetoWSLCookie: " + var8.getStackTrace());
+      } finally {
+         logger.exiting(methodName);
+      }
+
+      return adfsCookieData;
+   }
+
+   private void displayTokenInformation(JWTToken token) {
+      this.displayPayloadFromStringArray(token.getAttributesAsStringArray());
+   }
+
+   private void displayPayloadFromStringArray(Map<String, String[]> StringArrayPayloadClaims) {
+      CollectCookieInformationBean cookieData = null;
+      logger.warn("--- PAYLOAD CLAIMS AS STRING");
+
+      try {
+         new CollectCookieInformationBean();
+         Iterator var4 = StringArrayPayloadClaims.entrySet().iterator();
+
+         while(var4.hasNext()) {
+            Entry<String, String[]> entry = (Entry)var4.next();
+            String[] var8;
+            int var7 = (var8 = (String[])entry.getValue()).length;
+
+            for(int var6 = 0; var6 < var7; ++var6) {
+               String value = var8[var6];
+               logger.warn((String)entry.getKey() + " = " + value);
+            }
+         }
+      } catch (Exception var9) {
+         logger.warn("EXCEPTION Parsing String Array Payload: ex.getMessage()");
+      }
+
+      logger.warn("");
+   }
+}

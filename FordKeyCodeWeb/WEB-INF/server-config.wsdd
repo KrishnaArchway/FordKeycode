@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/"
+            xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ <globalConfiguration>
+  <parameter name="adminPassword" value="admin1Bean"/>
+  <parameter name="attachments.Directory" value="./attachments"/>
+  <parameter name="attachments.implementation"
+             value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <parameter name="sendXsiTypes" value="true"/>
+  <parameter name="sendMultiRefs" value="false"/>
+  <parameter name="sendXMLDeclaration" value="true"/>
+  <parameter name="axis.sendMinimizedElements" value="true"/>
+  <requestFlow>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="session"/>
+   </handler>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="request"/>
+    <parameter name="extension" value=".jwr"/>
+   </handler>
+   
+   <handler type="log" />
+   
+  </requestFlow>
+  
+  <responseFlow>
+        <handler type="log" />
+    
+    </responseFlow>
+  
+ </globalConfiguration>
+ <handler name="LocalResponder"
+          type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <handler name="URLMapper"
+          type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <handler name="Authenticate"
+          type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+          
+  <handler name="log" type="java:com.archway.webservices.handler.SOAPLogHandler"></handler>         
+  
+ 
+ 
+ 
+ 
+   <service name="vin/validateNewVin" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="urn:validateNewVin"/>
+      <parameter name="wsdlServiceElement" value="VinNewImplService"/>
+      <parameter name="schemaUnqualified" value="urn:validateNewVin"/>
+      <parameter name="wsdlServicePort" value="validateNewVin"/>
+      <parameter name="className" value="com.archway.webservices.VinNewImpl"/>
+      <parameter name="wsdlPortType" value="VinNewImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="validateVinNewVehicle" qname="operNS:validateVinNewVehicle" xmlns:operNS="urn:validateNewVin" returnQName="validateVinNewVehicleReturn" returnType="rtns:VinResponseEntity" xmlns:rtns="urn:validateNewVin" soapAction="" >
+        <parameter qname="vinRequestEntity" type="tns:VinRequestEntity" xmlns:tns="urn:validateNewVin"/>
+      </operation>
+      <parameter name="allowedMethods" value="validateVinNewVehicle"/>
+      <parameter name="scope" value="Session"/>
+
+      <typeMapping
+        xmlns:ns="urn:validateNewVin"
+        qname="ns:VinResponseEntity"
+        type="java:com.archway.webservices.VinResponseEntity"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:validateNewVin"
+        qname="ns:VinRequestEntity"
+        type="java:com.archway.webservices.VinRequestEntity"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  </service>
+          
+<service name="vin/validateVin" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="urn:validateVin"/>
+      <parameter name="wsdlServiceElement" value="VinImplService"/>
+      <parameter name="schemaUnqualified" value="urn:validateVin"/>
+      <parameter name="wsdlServicePort" value="validateVin"/>
+      <parameter name="className" value="com.archway.webservices.VinImpl"/>
+      <parameter name="wsdlPortType" value="VinImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="validateVin" qname="operNS:validateVin" xmlns:operNS="urn:validateVin" returnQName="validateVinReturn" returnType="rtns:VinResponseEntity" xmlns:rtns="urn:validateVin" soapAction="" >
+        <parameter qname="vinRequestEntity" type="tns:VinRequestEntity" xmlns:tns="urn:validateVin"/>
+      </operation>
+      <parameter name="allowedMethods" value="validateVin"/>
+      <parameter name="scope" value="Session"/>
+
+      <typeMapping
+        xmlns:ns="urn:validateVin"
+        qname="ns:VinResponseEntity"
+        type="java:com.archway.webservices.VinResponseEntity"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:validateVin"
+        qname="ns:VinRequestEntity"
+        type="java:com.archway.webservices.VinRequestEntity"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  </service>
+  
+ 
+  
+  <!--
+  <service name="vin/validateVin" provider="java:RPC" style="rpc" use="encoded">
+        <parameter name="wsdlTargetNamespace" value="urn:validateVin"/>
+        <parameter name="wsdlServiceElement" value="VinImplService"/>
+        <parameter name="schemaUnqualified" value="urn:validateVin"/>
+        <parameter name="wsdlServicePort" value="validateVin"/>
+        <parameter name="className" value="com.archway.webservices.VinImpl"/>
+        <parameter name="wsdlPortType" value="VinImpl"/>
+        <parameter name="typeMappingVersion" value="1.2"/>
+        <operation name="helloWebServiceTest" qname="operNS:helloWebServiceTest" xmlns:operNS="urn:validateVin" returnQName="helloWebServiceTestReturn" returnType="rtns:string" xmlns:rtns="http://schemas.xmlsoap.org/soap/encoding/" soapAction="" >
+        </operation>
+        <operation name="validateVin" qname="operNS:validateVin" xmlns:operNS="urn:validateVin" returnQName="validateVinReturn" returnType="rtns:VinResponseEntity" xmlns:rtns="urn:validateVin" soapAction="" >
+          <parameter qname="vinRequestEntity" type="tns:VinRequestEntity" xmlns:tns="urn:validateVin"/>
+        </operation>
+        <parameter name="allowedMethods" value="helloWebServiceTest validateVin"/>
+        <parameter name="scope" value="Session"/>
+  
+        <typeMapping
+          xmlns:ns="urn:validateVin"
+          qname="ns:VinResponseEntity"
+          type="java:com.archway.webservices.VinResponseEntity"
+          serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+          deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+        />
+        <typeMapping
+          xmlns:ns="urn:validateVin"
+          qname="ns:VinRequestEntity"
+          type="java:com.archway.webservices.VinRequestEntity"
+          serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+          deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+          encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+        />
+  </service>
+  -->
+  
+  
+  
+  
+
+  <!--
+    <service name="test/Test" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="urn:Test"/>
+      <parameter name="wsdlServiceElement" value="TestImplService"/>
+      <parameter name="wsdlServicePort" value="Test"/>
+      <parameter name="className" value="com.archway.webservices.test.TestImpl"/>
+      <parameter name="wsdlPortType" value="TestImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getName" qname="operNS:getName" xmlns:operNS="urn:Test" returnQName="getNameReturn" returnType="rtns:string" xmlns:rtns="http://schemas.xmlsoap.org/soap/encoding/" soapAction="" >
+        <parameter qname="in" type="tns:string" xmlns:tns="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </operation>
+      <parameter name="allowedMethods" value="getName"/>
+      <parameter name="scope" value="Session"/>
+
+  </service>
+  -->
+          
+          
+          
+<transport name="http">
+  <requestFlow>
+   <handler type="URLMapper"/>
+   <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </requestFlow>
+ </transport>
+ <transport name="local">
+  <responseFlow>
+   <handler type="LocalResponder"/>
+  </responseFlow>
+ </transport>
+</deployment>

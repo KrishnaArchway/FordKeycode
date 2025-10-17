@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+	"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+	
+<tiles-definitions>
+  
+  <definition name=".keyCodePageTemplate" path="/jsp/template/loginPageTemplate.jsp">
+    <put name="header" value="/jsp/common/header.jsp" />    
+    <put name="content" value="" />    
+    <put name="footer" value="/jsp/common/footer.jsp" />    
+  </definition>
+  <definition name=".keyCodeNewVehiclePageTemplate" path="/jsp/template/loginPageNewVehicleTemplate.jsp">
+    <put name="header" value="/jsp/common/NewVehicleHeader.jsp" />    
+    <put name="content" value="" />    
+    <put name="footer" value="/jsp/common/footer.jsp" />    
+  </definition>
+  
+  
+  <definition name=".threeKeyCodeNewVehiclePageTemplate" path="/jsp/template/ThreePageNewVehicleTemplate.jsp">
+    <put name="header" value="/jsp/common/NewVehicleHeader.jsp" />    
+    <put name="content" value="" />    
+    <put name="footer" value="/jsp/common/Thirdfooter.jsp" />    
+  </definition>
+  
+   <definition name=".prePreShowActionPage" extends=".keyCodePageTemplate" >
+    	<put name="content" value="/jsp/site/prePreShowActionPage.jsp" />
+  </definition>
+  
+  <definition name=".showHomePage" extends=".keyCodePageTemplate" >
+    	<put name="content" value="/jsp/site/showHomePage.jsp" />
+  </definition>
+  
+  <definition name=".mainPage" extends=".keyCodePageTemplate" >
+    	<put name="content" value="/jsp/site/mainPage.jsp" />
+  </definition>
+  
+  <definition name=".showHomePageFail" extends=".keyCodePageTemplate" >
+    	<put name="content" value="/jsp/site/showHomePageFail.jsp" />
+  </definition>
+  
+  
+  <definition name=".adminLoginPage" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/adminLoginPage.jsp" />
+  </definition>
+  
+  <definition name=".adminHomePage" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/adminHomePage.jsp" />
+  </definition>
+  
+  <definition name=".vinPage" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/vinPage.jsp" />
+  </definition>
+  
+   <definition name=".ownerPage" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/ownerPage.jsp" />
+  </definition>
+  
+  <definition name=".dealerPage" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/dealerPage.jsp" />
+  </definition>  
+     
+  <definition name=".dealerPage2" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/dealerRegisterPageTwo.jsp" />
+  </definition>
+     
+  <definition name=".ownerPage2" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/ownerPageTwo.jsp" />
+  </definition>
+ 
+  <definition name=".ownerPage3" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/RegisterOwnerPageThree.jsp" />
+  </definition>
+  
+  <definition name=".thankYou" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/site/ThankYouPage.jsp" />
+  </definition>
+  
+   <definition name=".viewLogs" extends=".keyCodePageTemplate" >
+      	<put name="content" value="/jsp/common/ViewAppLogs.jsp" />
+  </definition>
+  
+  <definition name=".contentErrorPage" extends=".keyCodePageTemplate">
+	    <put name="title" value="Error" />
+	    <put name="content" value="/jsp/common/contentErrorPage.jsp" />
+  </definition>
+   
+  <definition name=".vinExist" extends=".keyCodePageTemplate">
+	    <put name="title" value="" />
+	    <put name="content" value="/jsp/site/VINExistPage.jsp" />
+  </definition>
+   
+  <definition name=".cancelMessage" extends=".keyCodePageTemplate">
+	    <put name="title" value="" />
+	    <put name="content" value="/jsp/site/CancelMessage.jsp" />
+  </definition>
+  
+  <definition name=".confirmPage" extends=".keyCodePageTemplate">
+	    <put name="title" value="" />
+	    <put name="content" value="/jsp/site/confirmPage.jsp" />
+  </definition>
+
+  <definition name=".showPaCodeFail" extends=".keyCodePageTemplate" >
+    	<put name="content" value="/jsp/site/showHomePageFail.jsp" />
+  </definition>
+  
+  
+  <definition name=".newVehiclePageNewPage1" extends=".keyCodeNewVehiclePageTemplate" >
+    	<put name="content" value="/jsp/site/newVehiclePageNewPage1.jsp" />
+  </definition>
+  
+  
+   <definition name=".newVehiclePageThreeFail" extends=".threeKeyCodeNewVehiclePageTemplate" >
+    	<put name="content" value="/jsp/site/newVehiclePageThreeFail.jsp" />
+  </definition>
+  
+   <definition name=".newVehiclesubmittedBy" extends=".keyCodeNewVehiclePageTemplate" >
+    	<put name="content" value="/jsp/site/newVehiclesubmittedBy.jsp" />
+  </definition>
+  
+  <definition name=".newVehiclePageNewPage3" extends=".keyCodeNewVehiclePageTemplate" >
+    	<put name="content" value="/jsp/site/newVehiclePageNewPage3.jsp" />
+  </definition>
+  
+  
+  <definition name=".newVehiclePage" extends=".keyCodeNewVehiclePageTemplate" >
+    	<put name="content" value="/jsp/site/newVehiclePage.jsp" />
+  </definition>
+  
+  <definition name=".vinNewVehiclePage" extends=".keyCodeNewVehiclePageTemplate" >
+    	<put name="content" value="/jsp/site/vinNewVehiclePage.jsp" />
+  </definition>
+  
+  <definition name=".vinNewVehicleConfirmationPage" extends=".keyCodeNewVehiclePageTemplate" >
+    	<put name="content" value="/jsp/site/vinNewVehicleConfirmationPage.jsp" />
+  </definition>
+  
+   <definition name=".newVehicleThankYouPage" extends=".keyCodeNewVehiclePageTemplate" >
+    	<put name="content" value="/jsp/site/ThankYouNewVehiclePage.jsp" />
+  </definition>
+  
+  
+  
+</tiles-definitions>

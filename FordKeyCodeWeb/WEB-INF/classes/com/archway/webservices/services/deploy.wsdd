@@ -1,0 +1,46 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VinImplService WSDL service -->
+
+  <service name="validateVin" provider="java:RPC" style="rpc" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="urn:validateVin"/>
+      <parameter name="wsdlServiceElement" value="VinImplService"/>
+      <parameter name="schemaUnqualified" value="urn:validateVin"/>
+      <parameter name="wsdlServicePort" value="validateVin"/>
+      <parameter name="className" value="com.archway.webservices.services.ValidateVinSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="VinImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="validateVin" qname="operNS:validateVin" xmlns:operNS="urn:validateVin" returnQName="validateVinReturn" returnType="rtns:VinResponseEntity" xmlns:rtns="urn:validateVin" soapAction="" >
+        <parameter qname="vinRequestEntity" type="tns:VinRequestEntity" xmlns:tns="urn:validateVin"/>
+      </operation>
+      <parameter name="allowedMethods" value="validateVin"/>
+      <parameter name="scope" value="Session"/>
+
+      <typeMapping
+        xmlns:ns="urn:validateVin"
+        qname="ns:VinResponseEntity"
+        type="java:com.archway.webservices.services.VinResponseEntity"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+      <typeMapping
+        xmlns:ns="urn:validateVin"
+        qname="ns:VinRequestEntity"
+        type="java:com.archway.webservices.services.VinRequestEntity"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      />
+  </service>
+</deployment>

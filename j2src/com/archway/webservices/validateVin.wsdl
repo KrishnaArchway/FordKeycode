@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:validateVin" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:validateVin" xmlns:intf="urn:validateVin" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="urn:validateVin" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="VinRequestEntity">
+    <sequence>
+     <element name="KEY" nillable="true" type="soapenc:string"/>
+     <element name="PACODE" nillable="true" type="soapenc:string"/>
+     <element name="VIN" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="VinResponseEntity">
+    <sequence>
+     <element name="ERROR_MESSAGE" nillable="true" type="soapenc:string"/>
+     <element name="PACODE" nillable="true" type="soapenc:string"/>
+     <element name="PAYLOAD_ID" nillable="true" type="soapenc:string"/>
+     <element name="VIN" nillable="true" type="soapenc:string"/>
+     <element name="VIN_RESULT" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="validateVinRequest">
+
+      <wsdl:part name="vinRequestEntity" type="impl:VinRequestEntity"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="validateVinResponse">
+
+      <wsdl:part name="validateVinReturn" type="impl:VinResponseEntity"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="VinImpl">
+
+      <wsdl:operation name="validateVin" parameterOrder="vinRequestEntity">
+
+         <wsdl:input message="impl:validateVinRequest" name="validateVinRequest"/>
+
+         <wsdl:output message="impl:validateVinResponse" name="validateVinResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="validateVinSoapBinding" type="impl:VinImpl">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="validateVin">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validateVinRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:validateVin" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validateVinResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:validateVin" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="VinImplService">
+
+      <wsdl:port binding="impl:validateVinSoapBinding" name="validateVin">
+
+         <wsdlsoap:address location="http://bhattam0.tsdet.archway.com/webservices/services/vin/validateVin"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

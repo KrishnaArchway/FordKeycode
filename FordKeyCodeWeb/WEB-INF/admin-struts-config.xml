@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+          
+          
+<struts-config>
+
+<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="EditRegistrationVINBean" type="com.archway.estore.formbean.EditRegistrationVINBean"></form-bean>					
+	</form-beans>
+
+
+	<!-- ========================================= Global Exception Definitions -->
+	<global-exceptions></global-exceptions>
+
+
+	<!-- =========================================== Global Forward Definitions -->
+	<global-forwards>
+		<!-- Default forward to "Welcome" action -->
+		<!-- Demonstrates using index.jsp to forward -->
+		<!-- <forward name="showComplaintSearch" path="/complaintSearchAction.do" /> -->
+	</global-forwards>
+
+	<action-mappings>
+
+		<action path="/adminLogin" type="com.archway.estore.admin.action.AdminLoginAction">
+			<forward name="adminLogin" path=".adminLoginPage" /> 
+			<forward name="adminHome" path=".adminHomePage" />   
+			<forward name="showBlockedPACodeList" path=".blockedPACodePage" />
+			<forward name="addPACodePage" path=".addPACodePage" />
+			<forward name="homePage" path="/../show1.do" />			
+		</action> 
+		
+		
+		<action path="/keyCodeExceptionReport" type="com.archway.estore.admin.action.KeyCodeExceptionReportAction">
+			<forward name="continue" path=".keyCodeExceptionReportPage" />
+		</action>
+		
+		<action path="/editRegistration" type="com.archway.estore.admin.action.EditRegistrationAction" name="EditRegistrationVINBean">
+			<forward name="continue" path=".editRegistration" />
+			<forward name="editVehicleOwnerInfo" path=".editVehicleOwnerInfo" />
+			<forward name="editPersonalIdInfo" path=".editPersonalIdInfo" />
+			<forward name="editVehicleInfo" path=".editVehicleInfo" />
+			<forward name="menuPage" path="/adminLogin.do?mode=menuPage" />						
+		</action> 
+		
+		<action path="/adminAjax" type="com.archway.estore.admin.action.AdminAjaxAction" />
+		
+	<action path="/sessionExpired"
+		type="com.archway.estore.admin.action.SessionExpiredAction">
+		<forward name="continue"
+			path=".sessionExpired" />
+	</action>
+	
+	<action path="/logout"
+		type="com.archway.estore.action.LogoutAction">
+		<forward name="continue" path="/jsp/common/logout.jsp" />
+	</action>
+	 	
+	</action-mappings>
+
+	<!-- ============================================= Controller Configuration -->
+
+	<controller
+		processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+
+	<!-- ======================================== Message Resources Definitions -->
+	
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+
+		<!-- Path to XML definition file -->
+		<set-property property="definitions-config"
+			value="/WEB-INF/admin-tiles-defs.xml" />
+		<!-- Set Module-awareness to true -->
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+	<message-resources parameter="MessageResources" />
+	
+</struts-config>          

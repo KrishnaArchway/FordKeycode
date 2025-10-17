@@ -1,0 +1,153 @@
+######################  PROPERTY FILE FOR FORD KEYCODE APPLICATION ##################################################################
+#/**
+# * 
+# * Archway Marketing Services.
+# * 7525 Cogswell Rd,
+# * Romulus, MI - 48174.
+# * Phone - 734.713.2000
+# * 
+# * Project Name            : FordKeyCode
+# * 
+# * Author                  : bhattam0 - Amar Bhatt Email:(AMAR_BHATT@ARCHWAY.COM) PH. 734.713.2019
+# * File Name               : keycode.app.properties.txt 
+# * 
+# * Date                    : Apr 10, 2013 9:58:42 PM
+# * 
+# * Change Date             : Apr 10, 2013 9:58:42 PM
+# * 						  Apr 11, 2013 12:28:17 PM
+# *
+# *
+# *
+# *
+# *
+# *						 
+# * ---------------------------------------------------------
+# * Description :- Add Class Description here
+# * ---------------------------------------------------------
+#   PROPERTY FILE FOR FORD KEYCODE APPLICATION
+#
+# */
+
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- Application Name                                                                                                                   -
+#--------------------------------------------------------------------------------------------------------------------------------------
+APPLICATION_NAME=Ford KeyCode Registration
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- JNDI Data Source Name																											  -
+#--------------------------------------------------------------------------------------------------------------------------------------
+DB_JNDI_DATASOURCE_NAME=jdbc/FordKeyCodeDS
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- Development Environment Mail Host and SMTP relay Server name                                                                       -
+#--------------------------------------------------------------------------------------------------------------------------------------
+DEV_MAIL_HOST=mplex02r.trade.archway.com
+DEV_SMTP_SERVER_NAME=mplex02r.trade.archway.com
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- Production Environment Mail Host and SMTP relay Server name                                                                        -
+#--------------------------------------------------------------------------------------------------------------------------------------
+PRD_MAIL_HOST=mplex02r.trade.archway.com
+PRD_SMTP_SERVER_NAME=mplex02r.trade.archway.com
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- Admin Login and passowrd. Storing it statically as auto database does not have the Structure to support database authincation	  -                                                                      
+#--------------------------------------------------------------------------------------------------------------------------------------
+ADMIN_LOGIN_ID=Admin-Archway
+ADMIN_PASSWORD=!ePassWord!
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- Back to FMCDealer.com button Urls                                                                                                  -
+#--------------------------------------------------------------------------------------------------------------------------------------
+DEV_BACK_TO_FMCDEALER.COM=https://stage.fordpro.com/en-us/tools/sales/resources/dealer-key-code/keycode/
+PRD_BACK_TO_FMCDEALER.COM=http://www.fmcdealer.dealerconnection.com
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- Key Code Access Login Urls (this on page after final submit page) (dealer registration and new vehicle back links)                                                                 -
+#--------------------------------------------------------------------------------------------------------------------------------------
+DEV_KEYCODE_ACCESS_URL=https://webqa.fleet.ford.com/keycode/Keycode_Menu.cgi
+PRD_KEYCODE_ACCESS_URL=https://web.fleet.ford.com/keycode/Keycode_Menu.cgi
+
+DEV_NEWVEHICLE_KEYCODE_ACCESS_URL=https://webqa.fleet.ford.com/keycode/Keycode_Menu.cgi
+PRD_NEWVEHICLE_KEYCODE_ACCESS_URL=https://web.fleet.ford.com/keycode/Keycode_Menu.cgi
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- Web Service access keys                                                                                                            -
+#--------------------------------------------------------------------------------------------------------------------------------------
+DEV_WEBSERVICE_ACCESS_KEYS=40778b756f90d97ffcff28b81e18de805a70ae4ef4084bd6c9126d0b63332ced
+PRD_WEBSERVICE_ACCESS_KEYS=68c62a0ee9dbba54798d68219f6999c38c87f4edd20b6c1c1f3e25bb04af86f8
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- fail url Service access keys                                                                                                            -
+#--------------------------------------------------------------------------------------------------------------------------------------
+fail.url=sessionExpired.do
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#- ADMIN CODE                                                                                                            -
+#--------------------------------------------------------------------------------------------------------------------------------------
+ADMIN_CODE=AECH|AECHA
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------
+#   Exception Email
+#--------------------------------------------------------------------------------------------------------------------------------------
+SUBJECT=Key Code Exception Record created by %pandacode% 
+
+FROM_EMAIL=FordAdmin@archway.com
+
+DEV_TO_EMAIL=amar_bhatt@archway.com,grace_sims@archway.com,brenda_nagy@archway.com,tammy_abraham@archway.com
+DEV_CC_EMAIL=amar_bhatt@archway.com
+DEV_BCC_EMAIL=FordKeyCode@archway.com
+
+PRD_TO_EMAIL=grace_sims@archway.com,brenda_nagy@archway.com
+PRD_CC_EMAIL=fordadmin@archway.com
+PRD_BCC_EMAIL=FordKeyCode@archway.com
+
+PLAIN_TEXT=Your email client does not support email in html format, please contact FordAdmin@archway.com for furthur assistance.
+
+NEW_VEHICLE_SUBJECT=New Vehicle Key Code Request (counter reached ten, exception) %pandacode%  
+
+
+#
+# Temp Path
+#
+EXCEL_CREATION_PATH=D:/auto/keycode/tmp/
+
+redirect.url=https://wwwqa.ownerverification.dealerconnection.com/keycode/index.jsp#
+
+#
+# Site Urls
+#
+DEV_HOME_URL=https://wwwqa.ownerverification.dealerconnection.com/keycode/index.jsp#
+PRD_HOME_URL=https://www.ownerverification.dealerconnection.com
+
+HOME_URL=https://wwwqa.ownerverification.dealerconnection.com/keycode/adfs.jsp
+
+#
+#ADFS-Details
+#
+#adfs.key.cert=D:/Cert/adfs-internal.prod.6-24-2020.pem
+#adfs.key.cert=D:/Cert/adfs-internal.prod.6-24-2020.pem
+audience.id=urn:archwayvehicleownership:resource:web_vehicle_ownership:qa
+adfs.key.cert=D:/auto/cert/ADFS_QA_internal.pem
+
+#adfs_url = https://corp.sts.ford.com/adfs/oauth2/authorize? ## NEW
+#response_type=token ## NEW
+#client_id=urn:archwayvehicleownership:clientid:web_vehicle_ownership:prod ## NEW
+
+#adfs_url = https://corpqa.sts.ford.com/adfs/oauth2/authorize?
+#&resource=urn:archwayvehicleownership:resource:web_vehicle_ownership:qa  ## audience.id
+#&redirect_uri=https://wwwqa.ownerverification.dealerconnection.com/ ## DEV_HOME_URL
+
+#
+# Maximum vehicle registration per month
+#
+MAX_REG_PER_MONTH = 10
+MAX_REG_PER_MONTH_IN_WORDS = Ten
+
+
+
+

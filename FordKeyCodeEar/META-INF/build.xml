@@ -1,0 +1,82 @@
+<!-- Copyright (c) 2002 by ObjectLearn. All Rights Reserved. -->
+
+<project name="AnotherTest"  default="deploy"  basedir=".">
+	<!-- set global properties for this build -->
+	<property file="./build.properties"/>
+	<property name="ear.temp" value="../../ear.tmp" />
+	<property name="mods" value="../" />
+
+	<target name="init">
+	<!-- Create the distear directory structure used by compile
+	     and copy the deployment descriptors into it-->
+		<mkdir dir="${ear.temp}"/>
+		<mkdir dir="${ear.temp}/META-INF"/>
+		<copy todir="${ear.temp}">
+			  <fileset dir="${mods}">
+				<include name="**/*.*"/>
+				<exclude name="**/build.xml"/>
+				<exclude name="**/build.properties"/>
+				<exclude name="**/module.links"/>
+				<exclude name="**/servers.xml"/>
+				<exclude name="**/targets.xml"/>
+				<exclude name="**/deploy.*"/>
+				<exclude name="**/undeploy.*"/>
+			  </fileset>
+		</copy>
+   		<dirname property="tmp.deploy.dir" file="${ear.temp}/META-INF"/>
+   </target>
+   
+   
+  <!-- Run Module Tasks -->
+   <target name="modules" depends="init">
+   
+<!-- BEGIN TASKS -  -->
+	  <!-- Begin tasks for NestleProfessionalComplaint -->
+	  
+  	  <ant inheritall="false"  antfile="${project.dir}/FordKeyCodeWeb/WEB-INF/build.xml" target="deploy">
+		<property name="deploy.dir" value="${tmp.deploy.dir}"/>
+		<property name="war" value="FordKeyCode" />
+		<property name="bypass-server-deploy" value="true" />
+	  </ant>
+	  
+	  <!-- End tasks for NestleProfessionalComplaint -->
+	  
+
+<!--  - END TASKS -->
+
+   </target>
+
+   <target name="deploy" depends="undeploy,modules" >
+	<!-- Create the distribution directory -->
+	<delete file="${ear}.ear" failonerror="false" />
+	<jar jarfile="${ear}.ear" basedir="${ear.temp}"/>
+	<copy file="${ear}.ear" todir="${deploy.dir}"/>
+	<delete file="${ear}.ear" failonerror="false" />
+	<delete dir="${ear.temp}" failonerror="false" />
+   </target>
+ 
+  <target name="deployTool">
+	  <ant antfile="./deploy.xml" dir="." target="deploy" inheritall="true">
+	  </ant>
+	  <ant antfile="./deploy.web.xml" dir="." target="deploy" inheritall="true">
+	  </ant>
+	  <ant antfile="./deploy.ejb.xml" dir="." target="deploy" inheritall="true">
+	  </ant>
+  </target> 
+
+  <target name="undeploy">
+    <!-- Sometimes you can undeploy with deleting the module file but it is best dealt on an appserver basis
+         at undeployTool target -->
+  </target>
+
+  <target name="undeployTool">
+	  <ant antfile="./undeploy.xml" dir="." target="undeploy" inheritall="true">
+	  </ant>
+	  <ant antfile="./undeploy.web.xml" dir="." target="undeploy" inheritall="true">
+	  </ant>
+	  <ant antfile="./undeploy.ejb.xml" dir="." target="undeploy" inheritall="true">
+	  </ant>
+  </target> 
+    
+
+</project>

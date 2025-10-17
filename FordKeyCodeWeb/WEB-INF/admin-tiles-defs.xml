@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+	"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+	
+<tiles-definitions>
+  
+  <definition name=".adminKeycodeTemplate" path="/jsp/template/admin/adminLoginTemplate.jsp">
+    <put name="header" value="/jsp/template/admin/header.jsp" />    
+    <put name="content" value="" />    
+    <put name="footer" value="/jsp/template/admin/footer.jsp" />    
+  </definition>
+  
+  
+  <definition name=".adminLoginPage" extends=".adminKeycodeTemplate" >
+    	<put name="content" value="/jsp/site/admin/adminLoginPage.jsp" />
+  </definition>
+  
+   <definition name=".adminHomePage" extends=".adminKeycodeTemplate" >
+    	<put name="content" value="/jsp/site/admin/adminHomePage.jsp" />
+  </definition>
+  
+  <definition name=".editRegistration" extends=".adminKeycodeTemplate" >
+    	<put name="content" value="/jsp/site/admin/editRegistration.jsp" />
+  </definition>
+  
+  <definition name=".editVehicleOwnerInfo" extends=".adminKeycodeTemplate" >
+    	<put name="content" value="/jsp/site/admin/editVehicleOwnerInfo.jsp" />
+  </definition>
+  
+  <definition name=".editPersonalIdInfo" extends=".adminKeycodeTemplate" >
+    	<put name="content" value="/jsp/site/admin/editPersonalIdInfo.jsp" />
+  </definition>
+  
+  <definition name=".editVehicleInfo" extends=".adminKeycodeTemplate" >
+    	<put name="content" value="/jsp/site/admin/editVehicleInfo.jsp" />
+  </definition>
+    
+  <definition name=".blockedPACodePage" extends=".adminKeycodeTemplate" >
+      	<put name="content" value="/jsp/site/admin/blockedPACodePage.jsp" />
+  </definition>
+  
+  <definition name=".adminAddPACodeTemplate" path="/jsp/template/admin/adminAddPACodeTemplate.jsp">    
+    <put name="content" value="" /> 
+  </definition>
+  
+  <definition name=".addPACodePage" extends=".adminAddPACodeTemplate" >
+      	<put name="content" value="/jsp/site/admin/addPACodePage.jsp" />
+  </definition>
+  
+  
+   <definition name=".keyCodeExceptionReportPage" extends=".adminKeycodeTemplate" >
+    	<put name="content" value="/jsp/site/admin/keyCodeExceptionReportPage.jsp" />
+  </definition>
+  
+   
+   <definition name=".adminErrorPageTemplate" path="/jsp/template/admin/adminErrorPageTemplate.jsp">
+    <put name="header" value="/jsp/template/admin/header.jsp" />    
+    <put name="content" value="" />    
+    <put name="footer" value="/jsp/template/admin/footer.jsp" />    
+  </definition>
+  
+   
+   <definition name=".sessionExpired" extends=".adminErrorPageTemplate" >
+    	<put name="content" value="/jsp/site/admin/sessionExpired.jsp" />
+  </definition>
+ 
+</tiles-definitions>  	

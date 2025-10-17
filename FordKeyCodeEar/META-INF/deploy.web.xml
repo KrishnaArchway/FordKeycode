@@ -1,0 +1,33 @@
+
+					
+					<!-- Copyright (c) 2002 by ObjectLearn. All Rights Reserved. -->
+					<!-- DO NOT MODIFY THIS FILE CHANGE THE SERVER FILE INSTEAD -->
+						<project name="deployextension"  default="deploy"  basedir=".">
+						  <target name="deploy" >
+						    <path id="toolpath">
+						        <!-- append the external classpath lastly -->
+						        <pathelement path="${java.class.path}" />
+						        <!-- append the path sent through eclipse to classpath -->
+						        <pathelement path="${adminToolPath}" />  
+				     		</path>
+							
+
+ 
+							  <java classname="com.evermind.client.orion.Oc4jAdminConsole" 
+							        fork="true" 
+							        classpathref="toolpath" >
+									<arg value="ormi://127.0.0.1:23791" />
+					                <arg value="admin" />
+					                <arg value="welcome" />
+				                <arg value="-bindWebApp" />
+				                <arg value="${ear}" />
+				                <arg value="FordKeyCode" />
+				                <arg value="http-web-site" />
+				                <arg value="/FordKeyCode" />
+			 				 </java>
+			 				
+
+						  </target>
+						</project>
+				
+	   		
