@@ -80,7 +80,7 @@ String strVin = sb.getVin() ;
 	}
 	
 	function showLogin(){
-		document.location.href= "http://www.fmcdealer.dealerconnection.com/sites/ford_lm/parts_service/pdt/Pages/keycode2.aspx" ;
+		document.location.href= "https://stage.fordpro.com/en-us/tools/sales/resources/dealer-key-code/keycode/";
 	}
 
 </script>            

@@ -17,6 +17,7 @@ String urlToGoKeyCode 	= 	(String)ConfigurationServlet.getApplicationProperty ( 
 <script>
 function continueFunction()
 {
+	formObj.action='newVehicle.do';
 	document.VehicleForm.submit();
 }
 

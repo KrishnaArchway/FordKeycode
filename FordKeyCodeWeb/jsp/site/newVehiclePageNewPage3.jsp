@@ -24,6 +24,7 @@ function goToFMCDealer(formObj)
 }
 function continueFunction()
 {
+	formObj.action='vinNewVehicle.do';
 	document.VehicleForm.submit();
 }
 </script>

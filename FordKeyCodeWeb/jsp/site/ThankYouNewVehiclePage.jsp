@@ -77,12 +77,14 @@ String urlToGoKeyCode 	= 	"https://stage.fordpro.com/en-us/tools/sales/resources
 function goToKeyCodeLogin()
 {
 	document.dealerPage2.action='<%=urlToGoKeyCode%>';
+	document.dealerPage2.method="GET";
 	document.dealerPage2.submit();
 }
 function caor()
 {
 	/////alert("in here");
 	document.dealerPage2.action='show.do?pacode=<%=sb.getPacode()%>&acl=<%=sb.getAcl()%>&wsl=<%=sb.getWsl()%>&t=<%=Math.random()%>';
+	document.dealerPage2.method="POST";
 	document.dealerPage2.submit();
 	//window.location.href = 'show.do?pacode=<%=sb.getPacode()%>&acl=<%=sb.getAcl()%>&wsl=<%=sb.getWsl()%>&t=<%=Math.random()%>';
 }

@@ -74,6 +74,7 @@ function fnBack(frmObj)
 function goToFMCDealer()
 {
 	document.dealerPage2.action='<%=urlToGoFmc%>' ;
+	document.dealerPage2.method="GET";
 	document.dealerPage2.submit();
 }
 </script>            

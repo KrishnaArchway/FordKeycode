@@ -20,6 +20,7 @@
 function continueFunction()
 {
 	//alert('hi');
+	document.VehicleForm.action='newVehiclePage3.do';
 	document.VehicleForm.submit();
 }
 

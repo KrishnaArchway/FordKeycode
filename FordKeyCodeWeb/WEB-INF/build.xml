@@ -45,7 +45,7 @@
 	<jar jarfile="${war}.war" basedir="${dist}"/>    
   	<copy file="${war}.war" todir="${deploy.dir}"/>
   	<copy file="${war}.war" todir="D:\2022Workspace\FordKeyCode\deploy"/>
-  	<move file="D:\2022Workspace\FordKeyCode\deploy\FordKeyCodeWeb.war" tofile="D:\2022Workspace\FordKeyCode\wardeploy\keycode.war"/>
+  	<move file="D:\2022Workspace\FordKeyCode\deploy\FordKeyCode.war" tofile="D:\2022Workspace\FordKeyCode\wardeploy\keycode.war"/>
     <delete file="${war}.war" failonerror="false" />
     <delete dir="${dist}" failonerror="false" />
   </target>
