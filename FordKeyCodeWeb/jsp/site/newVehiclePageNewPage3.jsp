@@ -22,7 +22,7 @@ function goToFMCDealer(formObj)
 	formObj.action='fmcDealer.do';
 	formObj.submit();
 }
-function continueFunction()
+function continueFunction(formObj)
 {
 	formObj.action='vinNewVehicle.do';
 	document.VehicleForm.submit();
