@@ -50,7 +50,7 @@ function continueFunction(formObj)
 				
 				<tr><td>&nbsp;</td></tr>
 				<tr>
-					<td>On an EXCEPTION basis - and not to exceed three key code requests per month - Ford will permit authorized dealership users to obtain new vehicle (stock unit) key code data.  Dealership key code request activity on unsold inventory will be closely monitored.  The over use or inappropriate handling of new vehicle inventory key code request may result in a dealership's loss or restricted access to this feature.</td>
+					<td>On an EXCEPTION basis - and not to exceed <%=com.archway.estore.common.ConfigurationServlet.getApplicationProperty("MAX_EXCEPTION_PER_MONTH_IN_WORDS")%> key code requests per month - Ford will permit authorized dealership users to obtain new vehicle (stock unit) key code data.  Dealership key code request activity on unsold inventory will be closely monitored.  The over use or inappropriate handling of new vehicle inventory key code request may result in a dealership's loss or restricted access to this feature.</td>
 				</tr>
 				
 				
