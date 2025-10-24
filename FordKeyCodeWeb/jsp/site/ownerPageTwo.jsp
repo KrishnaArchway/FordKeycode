@@ -643,7 +643,7 @@
 	{
 		// if limit of 3 reached don't allow new exception
 		//alert(document.getElementById("exceptionCount").value);
-		if (document.getElementById("exceptionCount").value>=3)
+		if (document.getElementById("exceptionCount").value>=10)
 		{
 		   document.getElementById("div2").style.display = "none"
 		   document.getElementById("exceptionLimit").style.display = "block";

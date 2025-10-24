@@ -147,7 +147,5 @@ adfs.key.cert=D:/auto/cert/ADFS_QA_internal.pem
 #
 MAX_REG_PER_MONTH = 10
 MAX_REG_PER_MONTH_IN_WORDS = Ten
-
-
-
-
+MAX_EXCEPTION_PER_MONTH = 10
+MAX_EXCEPTION_PER_MONTH_IN_WORDS = Ten

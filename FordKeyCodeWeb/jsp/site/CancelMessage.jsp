@@ -33,7 +33,7 @@
 			    <td align="center" colspan="3">&nbsp;	</td>			    
 			  </tr>
 			  <tr>
-			    <td  align="center"><b>to FMCDealer.com?</b></td>			    
+			    <td  align="center"><b>to Keycode?</b></td>			    
 			 </tr>
 			 <tr>
 			    <td align="center" colspan="3">&nbsp;	</td>			    
@@ -49,11 +49,9 @@
 		    <td align="center">
 		      <p colspan="2"><div class="buttons ui-widget">
 
-		              <!-- <button id="btnBack" class="JQueryButton" onclick="javascript:fnBack(this.form)">Back</button>&nbsp;&nbsp;
-		              <button id="btnFMCdealer" class="JQueryButton" onclick="javascript:goToFMCDealer()" >Yes - Go to FMCDealer.com</button>            
-		              -->
+		              
 		              <input type="button" id="btnBack" class="JQueryButton" onclick="javascript:fnBack(this.form)" value="Back" />&nbsp;&nbsp;
-		              <input type="button" id="btnFMCdealer" class="JQueryButton" onclick="javascript:goToFMCDealer()" value="Yes - Go to FMCDealer.com "/>            
+		              <input type="button" id="btnFMCdealer" class="JQueryButton" onclick="javascript:goToFMCDealer()" value="Yes - Go to Keycode "/>            
 				      
 				</div></td>
 		   
