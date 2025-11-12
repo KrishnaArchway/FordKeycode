@@ -31,7 +31,7 @@
 			<table width="100%" align="center" cellpadding="2" cellspacing="2">
 				
 				<tr>
-					<td align="center"><b>New Vehicle Key Code requests made this month: <font color="#FF0000"><b><%=sb.getNewVehCounter()%> of <%=com.archway.estore.common.ConfigurationServlet.getApplicationProperty("MAX_REG_PER_MONTH")%> (Limit)</b></font></td>
+					<td align="center"><b>New Vehicle Key Code requests made this month: <font color="#FF0000"><b><%=sb.getNewVehCounter()%> of 10 (Limit)</b></font></td>
 				</tr>
 				
 				<tr>

@@ -16,8 +16,7 @@
 	
 	
 	String urlParam			=	"&pacode="+sb.getPacode()+"&acl="+sb.getAcl()+"&wsl="+sb.getWsl();
-	//String urlToGoKeyCode 	= 	"https://www.dkc.dealerconnection.com/#/keycode/agreement?KeyCodeF=NEW"+urlParam;//(String)ConfigurationServlet.getApplicationProperty ( env + "_KEYCODE_ACCESS_URL" )+urlParam;
-	String urlToGoKeyCode 	= 	"https://stage.fordpro.com/en-us/tools/sales/resources/dealer-key-code/keycode/";
+	String urlToGoKeyCode 	= 	"https://fordpro.com/en-us/tools/sales/resources/dealer-key-code/";
 
 
 %>

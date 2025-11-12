@@ -14,8 +14,7 @@ String env 				= 	System.getProperty ( "ENV" );
 //String urlToGoKeyCode 	= 	(String)ConfigurationServlet.getApplicationProperty ( env + "_NEWVEHICLE_KEYCODE_ACCESS_URL" )+urlParam;
 
 String urlParam			=	"&pacode="+sb.getPacode()+"&acl="+sb.getAcl()+"&wsl="+sb.getWsl();
-//String urlToGoKeyCode 	= 	"https://www.dkc.dealerconnection.com/#/keycode/agreement?KeyCodeF=NEW"+urlParam;//(String)ConfigurationServlet.getApplicationProperty ( env + "_KEYCODE_ACCESS_URL" )+urlParam;
-String urlToGoKeyCode 	= 	"https://stage.fordpro.com/en-us/tools/sales/resources/dealer-key-code/keycode/";
+String urlToGoKeyCode 	= 	"https://fordpro.com/en-us/tools/sales/resources/dealer-key-code/";
 
 
 %>
@@ -77,12 +76,14 @@ String urlToGoKeyCode 	= 	"https://stage.fordpro.com/en-us/tools/sales/resources
 function goToKeyCodeLogin()
 {
 	document.dealerPage2.action='<%=urlToGoKeyCode%>';
+	document.dealerPage2.method="GET";
 	document.dealerPage2.submit();
 }
 function caor()
 {
 	/////alert("in here");
 	document.dealerPage2.action='show.do?pacode=<%=sb.getPacode()%>&acl=<%=sb.getAcl()%>&wsl=<%=sb.getWsl()%>&t=<%=Math.random()%>';
+	document.dealerPage2.method="POST";
 	document.dealerPage2.submit();
 	//window.location.href = 'show.do?pacode=<%=sb.getPacode()%>&acl=<%=sb.getAcl()%>&wsl=<%=sb.getWsl()%>&t=<%=Math.random()%>';
 }

@@ -22,7 +22,7 @@ try{
 try{
 	
 	if(reqParam == null || "".equalsIgnoreCase(reqParam)   || org1.equals(null) || org1.equals("")  ){
-		response.sendRedirect("index.jsp#");
+		response.sendRedirect("index.jsp");
 		
 %>
 <html lang="us">

@@ -62,8 +62,9 @@ ADMIN_PASSWORD=!ePassWord!
 #--------------------------------------------------------------------------------------------------------------------------------------
 #- Back to FMCDealer.com button Urls                                                                                                  -
 #--------------------------------------------------------------------------------------------------------------------------------------
-DEV_BACK_TO_FMCDEALER.COM=https://stage.fordpro.com/en-us/tools/sales/resources/dealer-key-code/keycode/
-PRD_BACK_TO_FMCDEALER.COM=http://www.fmcdealer.dealerconnection.com
+
+DEV_BACK_TO_FMCDEALER.COM=https://stage.fordpro.com/en-us/tools/sales/resources/dealer-key-code/
+PRD_BACK_TO_FMCDEALER.COM=https://fordpro.com/en-us/tools/sales/resources/dealer-key-code/
 
 #--------------------------------------------------------------------------------------------------------------------------------------
 #- Key Code Access Login Urls (this on page after final submit page) (dealer registration and new vehicle back links)                                                                 -
@@ -116,29 +117,28 @@ NEW_VEHICLE_SUBJECT=New Vehicle Key Code Request (counter reached ten, exception
 #
 EXCEL_CREATION_PATH=D:/auto/keycode/tmp/
 
-redirect.url=https://wwwqa.ownerverification.dealerconnection.com/keycode/index.jsp#
+redirect.url=https://www.ownerverification.dealerconnection.com/keycode/main.jsp?keyCodeV=
 
 #
 # Site Urls
 #
-DEV_HOME_URL=https://wwwqa.ownerverification.dealerconnection.com/keycode/index.jsp#
+DEV_HOME_URL=https://wwwqa.ownerverification.dealerconnection.com/keycode/adfs.jsp
 PRD_HOME_URL=https://www.ownerverification.dealerconnection.com
 
-HOME_URL=https://wwwqa.ownerverification.dealerconnection.com/keycode/adfs.jsp
+HOME_URL=https://www.ownerverification.dealerconnection.com/keycode/adfs.jsp
 
 #
 #ADFS-Details
 #
-#adfs.key.cert=D:/Cert/adfs-internal.prod.6-24-2020.pem
-#adfs.key.cert=D:/Cert/adfs-internal.prod.6-24-2020.pem
-audience.id=urn:archwayvehicleownership:resource:web_vehicle_ownership:qa
-adfs.key.cert=D:/auto/cert/ADFS_QA_internal.pem
+audience.id=urn:archwayvehicleownership:resource:web_vehicle_ownership:prod
+#urn:archwayvehicleownership:resource:web_vehicle_ownership:prod
+#adfs.key.cert=D:/auto/certificate/tokensigning.corpqa.sts.ford.com.cer
+adfs.key.cert=C:/Cert/ADFS-internal.pem
 
-#adfs_url = https://corp.sts.ford.com/adfs/oauth2/authorize? ## NEW
-#response_type=token ## NEW
-#client_id=urn:archwayvehicleownership:clientid:web_vehicle_ownership:prod ## NEW
+adfs_url = https://corp.sts.ford.com/adfs/oauth2/authorize? ## NEW
+response_type=token ## NEW
+client_id=urn:archwayvehicleownership:clientid:web_vehicle_ownership:prod ## NEW
 
-#adfs_url = https://corpqa.sts.ford.com/adfs/oauth2/authorize?
 #&resource=urn:archwayvehicleownership:resource:web_vehicle_ownership:qa  ## audience.id
 #&redirect_uri=https://wwwqa.ownerverification.dealerconnection.com/ ## DEV_HOME_URL
 
@@ -147,7 +147,8 @@ adfs.key.cert=D:/auto/cert/ADFS_QA_internal.pem
 #
 MAX_REG_PER_MONTH = 10
 MAX_REG_PER_MONTH_IN_WORDS = Ten
-
+MAX_EXCEPTION_PER_MONTH = 10
+MAX_EXCEPTION_PER_MONTH_IN_WORDS = Ten
 
 
 

@@ -13,22 +13,18 @@ String currPage = (String)session.getAttribute("currPage");
 
 out.println(request.getParameter("errorMessage") +"  currPage :: " + currPage);
 
-try{
-	if(request.getParameter("errorMessage").equals("Success! Redirected")  && currPage.equals(null)){
-		response.sendRedirect("show.do?pacode="+collectCookieInformationBean.getOrg ()+"&acl=FORD&wsl="+collectCookieInformationBean.getUser());
-	}else if(request.getParameter("errorMessage").equals("Success! Redirected") && !currPage.equals(null)){
-		if(currPage.equalsIgnoreCase("main.jsp?keyCodeV=old")){
-			response.sendRedirect("show.do?pacode="+collectCookieInformationBean.getOrg ()+"&acl=FORD&wsl="+collectCookieInformationBean.getUser());
-			//response.sendRedirect("adfs.jsp");
-		}else{
-			response.sendRedirect("adfsNewVehicle.jsp"); //main.jsp?keyCodeV=old
-		}
-	}else{
-			reqParam=request.getParameter("errorMessage");
-	}
 
-}catch(Exception ex){
-	response.sendRedirect("index.jsp");
+if(request.getParameter("errorMessage").equals("Success! Redirected")  && currPage.equals(null)){
+	response.sendRedirect("show.do?pacode="+collectCookieInformationBean.getOrg ()+"&acl=FORD&wsl="+collectCookieInformationBean.getUser());
+}else if(request.getParameter("errorMessage").equals("Success! Redirected") && !currPage.equals(null)){
+	if(currPage.equalsIgnoreCase("main.jsp?keyCodeV=old")){
+		response.sendRedirect("show.do?pacode="+collectCookieInformationBean.getOrg ()+"&acl=FORD&wsl="+collectCookieInformationBean.getUser());
+		//response.sendRedirect("adfs.jsp");
+	}else{
+		response.sendRedirect("adfsNewVehicle.jsp"); //main.jsp?keyCodeV=old
+	}
+}else{
+	reqParam=request.getParameter("errorMessage");
 }
 
 %>

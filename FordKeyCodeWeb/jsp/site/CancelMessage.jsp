@@ -9,7 +9,7 @@
 
 <%
 	String env 			= 	System.getProperty ( "ENV" );
-	String urlToGoFmc 	= 	"https://stage.fordpro.com/en-us/tools/sales/resources/dealer-key-code/keycode/";
+	String urlToGoFmc 	= 	"https://fordpro.com/en-us/tools/sales/resources/dealer-key-code/";
 
 %>
 
@@ -33,7 +33,7 @@
 			    <td align="center" colspan="3">&nbsp;	</td>			    
 			  </tr>
 			  <tr>
-			    <td  align="center"><b>to FMCDealer.com?</b></td>			    
+			    <td  align="center"><b>to Key Code?</b></td>			    
 			 </tr>
 			 <tr>
 			    <td align="center" colspan="3">&nbsp;	</td>			    
@@ -53,7 +53,7 @@
 		              <button id="btnFMCdealer" class="JQueryButton" onclick="javascript:goToFMCDealer()" >Yes - Go to FMCDealer.com</button>            
 		              -->
 		              <input type="button" id="btnBack" class="JQueryButton" onclick="javascript:fnBack(this.form)" value="Back" />&nbsp;&nbsp;
-		              <input type="button" id="btnFMCdealer" class="JQueryButton" onclick="javascript:goToFMCDealer()" value="Yes - Go to FMCDealer.com "/>            
+		              <input type="button" id="btnFMCdealer" class="JQueryButton" onclick="javascript:goToFMCDealer()" value="Yes - Go to Key Code "/>            
 				      
 				</div></td>
 		   
@@ -74,6 +74,7 @@ function fnBack(frmObj)
 function goToFMCDealer()
 {
 	document.dealerPage2.action='<%=urlToGoFmc%>' ;
+	document.dealerPage2.method="GET";
 	document.dealerPage2.submit();
 }
 </script>            

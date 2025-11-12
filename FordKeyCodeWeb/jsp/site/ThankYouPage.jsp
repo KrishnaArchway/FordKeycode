@@ -20,8 +20,7 @@
 	//String urlToGoKeyCode 	= 	(String)ConfigurationServlet.getApplicationProperty ( env + "_KEYCODE_ACCESS_URL" )+urlParam;
 	
 	String urlParam			=	"&pacode="+sb.getPacode()+"&acl="+sb.getAcl()+"&wsl="+sb.getWsl();
-	//String urlToGoKeyCode 	= 	"https://www.dkc.dealerconnection.com/#/keycode/agreement?KeyCodeF=OLD"+urlParam;//(String)ConfigurationServlet.getApplicationProperty ( env + "_KEYCODE_ACCESS_URL" )+urlParam;
-	String urlToGoKeyCode 	= 	"https://stage.fordpro.com/en-us/tools/sales/resources/dealer-key-code/keycode/";
+	String urlToGoKeyCode 	= 	"https://fordpro.com/en-us/tools/sales/resources/dealer-key-code/";
 
 %>
 
@@ -77,7 +76,7 @@
 						</tr>
 						<tr>
 							<td width="100%" colspan="2"><b>Key Code Dealer Audits </b>
-							-  <a href="pdf/ComplianceAndAudits.docx" target="_blank">Compliance and Audits Doc</a> </td>
+							-  <a href="/pdf/Dealership_Keycode_complaince_PDF.pdf" target="_blank">Compliance and Audits PDF</a> </td>
 						</tr>
 					</table>
 <%
@@ -117,7 +116,7 @@
   						</tr>-->
   						<tr>
     						<td width="100%" colspan="2">
-      							<li>Click here to open the <a href="pdf/Vehicle_Ownership_Verification_Form.pdf" target="_blank">Vehicle Ownership Verification Form</a></li>
+      							<li>Click here to open the <a href="/pdf/Vehicle_Ownership_Verification_Form.pdf" target="_blank">Vehicle Ownership Verification Form</a></li>
       						</td>
   						</tr>
   						<tr>
@@ -178,12 +177,14 @@
 function goToKeyCodeLogin()
 {
 	document.dealerPage2.action='<%=urlToGoKeyCode%>';
+	document.dealerPage2.method="GET";
 	document.dealerPage2.submit();
 }
 function caor()
 {
 	/////alert("in here");
 	document.dealerPage2.action='show.do?pacode=<%=sb.getPacode()%>&acl=<%=sb.getAcl()%>&wsl=<%=sb.getWsl()%>&t=<%=Math.random()%>';
+	document.dealerPage2.method="POST";
 	document.dealerPage2.submit();
 	//window.location.href = 'show.do?pacode=<%=sb.getPacode()%>&acl=<%=sb.getAcl()%>&wsl=<%=sb.getWsl()%>&t=<%=Math.random()%>';
 }

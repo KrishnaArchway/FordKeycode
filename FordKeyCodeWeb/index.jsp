@@ -119,8 +119,8 @@ try{
 <input type="hidden" name ="code" id="code" value=""/>
 <input type="hidden" name ="client_id" id="client_id" value="urn:archwayvehicleownership:clientid:web_vehicle_ownership:qa"/>
 <input type="hidden" name ="resource_id" id="resource_id"  value="urn:archwayvehicleownership:resource:web_vehicle_ownership:qa"/>
-<input type="hidden" name ="redirect_uri" id="redirect_uri" value="https://wwwqa.ownerverification.dealerconnection.com/keycode/adfs.jsp"/>
-<input type="hidden" name ="auth_url" id="auth_url" value="https://corpqa.sts.ford.com/adfs/oauth2/authorize"/>
+<input type="hidden" name ="redirect_uri" id="redirect_uri" value="https://www.ownerverification.dealerconnection.com/keycode/adfs.jsp"/>
+<input type="hidden" name ="auth_url" id="auth_url" value="https://corp.sts.ford.com/adfs/oauth2/authorize"/>
 <input type="hidden" name ="response_type" id="response_type" value="token"/>
 
 <input type="button" onclick="window.location.href = redirectUrl">
@@ -129,7 +129,7 @@ try{
 	
 	if(token == null){
 		
-		window.location.href =  "https://corpqa.sts.ford.com/adfs/oauth2/authorize?response_type=token&client_id=urn:archwayvehicleownership:clientid:web_vehicle_ownership:qa&resource=urn:archwayvehicleownership:resource:web_vehicle_ownership:qa&redirect_uri=https://wwwqa.ownerverification.dealerconnection.com/keycode/index.jsp" ;
+		window.location.href =  "https://corp.sts.ford.com/adfs/oauth2/authorize?response_type=token&client_id=urn:archwayvehicleownership:clientid:web_vehicle_ownership:prod&resource=urn:archwayvehicleownership:resource:web_vehicle_ownership:prod&redirect_uri=https://www.ownerverification.dealerconnection.com/" ;
 		
 		/*//var redirectUrl = <% ConfigurationServlet.getApplicationProperty("adfs_url");%>;
 									//+"?response_type="+ <%ConfigurationServlet.getApplicationProperty("response_type");%>

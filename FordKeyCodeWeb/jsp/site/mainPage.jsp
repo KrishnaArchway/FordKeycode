@@ -36,7 +36,7 @@
 						<tr>
 							<td width="1%">&nbsp;</td>
 							<td width="1%">
-							<p align="right"><img border="0" src="images/arrow4Pre.gif"
+							<p align="right"><img border="0" src="/images/arrow4Pre.gif"
 								width="21" height="14">
 							</td>
 							<td width="116%">&nbsp;&nbsp;Key code access requires that a Vehicle Ownership Record is entered into the verification database</td>
@@ -44,7 +44,7 @@
 						<tr>
 							<td width="1%">&nbsp;</td>
 							<td width="1%">
-							<p align="right"><img border="0" src="images/arrow4Pre.gif"
+							<p align="right"><img border="0" src="/images/arrow4Pre.gif"
 								width="21" height="14">
 							</td>
 							<td width="116%">&nbsp;&nbsp;You are required to retain copies of vehicle ownership documentation:</td>
@@ -97,10 +97,10 @@
 						<tr>
 							<td width="1%">&nbsp;</td>
 							<td width="1%">
-							<p align="right"><img border="0" src="images/arrow4Pre.gif"
+							<p align="right"><img border="0" src="/images/arrow4Pre.gif"
 								width="21" height="14">
 							</td>
-							<td width="116%">&nbsp;&nbsp;If you do not have this information, please return to FMCDealer.com</td>
+							<td width="116%">&nbsp;&nbsp;If you do not have this information, please return to Key Code</td>
 						</tr>
 						<tr>
 						<tr>
@@ -113,7 +113,7 @@
 						</tr>
 						<tr>
 							<td width="1%">&nbsp;</td>
-							<td width="100%" colspan="3"><i>Please see Fleet Vehicle Key Code process on FMCDealer.com</i></td>
+							<td width="100%" colspan="3"><i>Please see Fleet Vehicle Key Code process on Key Code</i></td>
 						</tr>
 						<tr>
 							<td width="100%" colspan="3">&nbsp;</td>
@@ -124,7 +124,7 @@
 						</tr>
 						<tr>
 							<td width="1%">&nbsp;</td>
-							<td width="100%" colspan="3"><i>Please see New Vehicle Inventory Key Code process on FMCDealer.com</i></td>
+							<td width="100%" colspan="3"><i>Please see New Vehicle Inventory Key Code process on Key Code</i></td>
 						</tr>
 
 						<tr>

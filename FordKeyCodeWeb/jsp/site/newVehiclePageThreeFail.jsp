@@ -47,7 +47,7 @@ function goToKeyCodeLogin()
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr>			
-					<td align="center"><p align="center">Your dealership has reached the limit of <%=com.archway.estore.common.ConfigurationServlet.getApplicationProperty("MAX_REG_PER_MONTH_IN_WORDS")%> (<%=com.archway.estore.common.ConfigurationServlet.getApplicationProperty("MAX_REG_PER_MONTH")%>) new vehicle key code requests per month for the current month.
+					<td align="center"><p align="center">Your dealership has reached the limit of three (3) new vehicle key code requests per month for the current month.
 <br>  
 					No additional new vehicle key code requests can be made through the remainder of this month.
 <br><br>
